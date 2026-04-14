@@ -3,16 +3,15 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UGUICustomMenuItem : MonoBehaviour
+public class UGUICustomRoundImageMenuItem : MonoBehaviour
 {
-    //아래 내용을 넣어 준다.
     [MenuItem("GameObject/UI/Round Image", false)]
     static void MenuItem(MenuCommand menuCommand)
     {
         // 1. Custom GameObject 이름으로 새 Object를 만든다.
         GameObject go = new GameObject("Round Image");
         go.AddComponent<RoundImage>();
-        
+
         go.transform.SetParent(FindAnyObjectByType<Canvas>().transform, false);
 
         // 2. Hierachy 윈도우에서 어떤 오브젝트를 선택하여 생성시에는 그 오브젝트의 하위 계층으로 생성된다.
@@ -25,4 +24,5 @@ public class UGUICustomMenuItem : MonoBehaviour
         // 4. 생성한 오브젝트를 선택한다.
         Selection.activeObject = go;
     }
+
 }
