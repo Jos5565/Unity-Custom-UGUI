@@ -43,6 +43,10 @@ namespace UGUICUSTOM
         public void OnCreateElement()
         {
             GameObject go = Instantiate(Element, scrollView.scrollRect.content);
+            if (SimpleListOption.cellSize.x == 0 && SimpleListOption.cellSize.y == 0)
+            {
+                SimpleListOption.cellSize = go.GetComponent<RectTransform>().sizeDelta;
+            }
             elements.Add(go);
         }
         public void OnClearElements()
