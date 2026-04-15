@@ -9,7 +9,11 @@
  > Simply change the list layout options to vertical, horizontal, or grid format.
 > 
  > <img src = https://github.com/user-attachments/assets/7b840a0a-41e2-427a-85c9-2ad75a502136 width = "700px" hight= "700px"  >
-
+## Button Toggle
+ > Merge Button, Toggle functions.
+>
+ > <img src = https://github.com/user-attachments/assets/ea521e66-a9d5-4426-a54d-814c7d4cc58f width = "700px" hight= "700px"  >
+  
 
 
 
