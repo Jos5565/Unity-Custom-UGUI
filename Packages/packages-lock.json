@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.jos.upmpublish": {
+      "version": "https://github.com/deepfine/xr_UPMDistributor.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "367ba52aba51274768d25d7894699cc8da5d2cfa"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
