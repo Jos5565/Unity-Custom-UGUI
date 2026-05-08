@@ -1,6 +1,10 @@
-# Unity UGUI Custom
+<img width="1029" height="95" alt="image" src="https://github.com/user-attachments/assets/0babf6db-0595-4f01-8097-4d9fb1369efc" /># Unity UGUI Custom
 ## Unity Version
  > - Unity 6.x
+## How to Use
+ > - Install Unity Pacakge from gitURL [  https://github.com/Jos5565/UGUITemplate.git ]
+ >    <img width="213" height="128" alt="image" src="https://github.com/user-attachments/assets/3b589bb6-01f2-424e-a298-886dfaadd38f" />
+ >    <img width="1029" height="95" alt="image" src="https://github.com/user-attachments/assets/abc65082-9b88-4455-bde2-42fd700acd1a" />
 ## Round Image
  > Get help from https://github.com/kirevdokimov/Unity-UI-Rounded-Corners.git
 > 
