@@ -1,5 +1,6 @@
 using UnityEditor;
 using UGUICUSTOM;
+using Unity.VisualScripting;
 
 namespace UnityEngine.UI
 {
@@ -20,14 +21,25 @@ namespace UnityEngine.UI
             EditorGUILayout.LabelField("Button Settings", EditorStyles.boldLabel);
             DrawSelectableProperties();
 
-
             EditorGUILayout.Space(10);
             if (buttonToggle.isToggle)
             {
-                SerializedProperty spriteField = serializedObject.FindProperty("toggleCheckSprite");
-                EditorGUILayout.PropertyField(spriteField, new GUIContent("Toggle Check Image"), true);
-                SerializedProperty booleanField = serializedObject.FindProperty("isOn");
-                EditorGUILayout.PropertyField(booleanField, new GUIContent("isOn"), true);
+                if (!OnChangesPublished())
+                {
+                    SerializedProperty spriteField = serializedObject.FindProperty("toggleCheckColor");
+                    EditorGUILayout.PropertyField(spriteField, new GUIContent("Toggle Check Color"), true);
+                }
+                else
+                {
+                    SerializedProperty spriteField = serializedObject.FindProperty("toggleCheckSprite");
+                    EditorGUILayout.PropertyField(spriteField, new GUIContent("Toggle Check Image"), true);
+                }
+
+
+                SerializedProperty booleanField = serializedObject.FindProperty("m_IsOn");
+                EditorGUILayout.PropertyField(booleanField, new GUIContent("is On"), true);
+                SerializedProperty toggleGroupField = serializedObject.FindProperty("m_Group");
+                EditorGUILayout.PropertyField(toggleGroupField, new GUIContent("Toggle Group"), true);
                 EditorGUILayout.Space(5);
                 useToggle = "Activated Button";
                 GUI.backgroundColor = Color.yellow;
@@ -80,7 +92,47 @@ namespace UnityEngine.UI
 
             EditorGUILayout.PropertyField(serializedObject.FindProperty("m_Navigation"));
         }
+        private Sprite lastSprite;
+        private bool OnChangesPublished()
+        {
+            if (!buttonToggle.isRound)
+            {
+                var script = (Image)buttonToggle.targetGraphic;
+
+                if (script.sprite == null) return false;
+
+                // 인스펙터에서 값이 변경되었는지 감지
+                if (GUI.changed)
+                {
+                    if (script.sprite != lastSprite)
+                    {
+                        Debug.Log($"스프라이트 변경 감지! 이전: {lastSprite?.name ?? "None"} -> 현재: {script.sprite?.name ?? "None"}");
+                        lastSprite = script.sprite; // 상태 갱신
+                    }
+                }
+
+            }
+            else
+            {
+                var script = (RoundImage)buttonToggle.targetGraphic;
+
+                if (script.sprite == null) return false;
+
+                // 인스펙터에서 값이 변경되었는지 감지
+                if (GUI.changed)
+                {
+                    if (script.sprite != lastSprite)
+                    {
+                        Debug.Log($"스프라이트 변경 감지! 이전: {lastSprite?.name ?? "None"} -> 현재: {script.sprite?.name ?? "None"}");
+                        lastSprite = script.sprite; // 상태 갱신
+
+                    }
+                }
+            }
+            return true;
+
+        }
+
+
     }
-
-
 }
